@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  ircserver:
+    build: .
+    image: irc_image
+    #ports:
+    #  - "8080:8080"
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '1'
+          memory: 500M
+      restart_policy:
+        condition: on-failure
